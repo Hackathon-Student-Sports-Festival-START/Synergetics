@@ -1,0 +1,20 @@
+services:
+  pgsql:
+    image: 'postgres:15'
+    ports:
+      - '5432:5432'
+    environment:
+      PGPASSWORD: 'password'
+      POSTGRES_DB: 'database'
+      POSTGRES_USER: 'username'
+      POSTGRES_PASSWORD: 'password'
+    volumes:
+      - 'app-pgsql:/var/lib/postgresql/data'
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "database", "-U", "username" ]
+      retries: 3
+      timeout: 5s
+
+volumes:
+  app-pgsql:
+    driver: local

@@ -12,11 +12,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "imports": {
+    "#config/*": "./config/*.js",
+    "#routes/*": "./routes/*.js",
+    "#models/*": "./models/*.js",
+    "#services/*": "./services/*.js",
+    "#controllers/*": "./controllers/*.js"
+  },
   "dependencies": {
-    "express": "^4.17.1",
     "body-parser": "^1.19.0",
-    "sequelize": "^6.6.5",
+    "ejs": "^3.1.10",
+    "express": "^4.17.1",
     "pg": "^8.6.0",
-    "pg-hstore": "^2.3.3"
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.5"
   }
 }
