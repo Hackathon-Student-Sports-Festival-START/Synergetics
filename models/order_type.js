@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Team = sequelize.define('Team', {
+const OrderType = sequelize.define('OrderType', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -10,9 +10,9 @@ const Team = sequelize.define('Team', {
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ""
     }
+});
 
-})
-
-module.exports = Team;
+module.exports = OrderType;

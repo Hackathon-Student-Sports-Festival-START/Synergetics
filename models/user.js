@@ -1,7 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const Admin = require('./admin');
+const Athlete = require('./athlete');
+const Participant = require('./participant');
 
-const athlete = sequelize.define('athlete', {
+const User = sequelize.define('User', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -20,19 +23,17 @@ const athlete = sequelize.define('athlete', {
         type: DataTypes.String,
         allowNull: true
     },
-    role_id: {
+    role_id:
+    {
         type: DataTypes.Integer,
         allowNull: false
-    },
-    command_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
-    is_leader: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
     }
 });
 
-module.exports = athlete;
+User.hasOne(Admin, {
+    foreignKey: "id"
+});
+User.hasOne(Athlete);
+User.hasOne(Participant);
+
+module.exports = User;

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const athlete = sequelize.define('athlete', {
+const participant = sequelize.define('participant', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -23,16 +23,7 @@ const athlete = sequelize.define('athlete', {
     role_id: {
         type: DataTypes.Integer,
         allowNull: false
-    },
-    command_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
-    is_leader: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
     }
 });
 
-module.exports = athlete;
+module.exports = participant;

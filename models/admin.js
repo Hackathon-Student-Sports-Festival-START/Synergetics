@@ -1,12 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const athlete = sequelize.define('athlete', {
+const Admin = sequelize.define('Admin', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
+    },
+    role_id: {
+        type: DataTypes.Integer,
+        allowNull: false
     },
     name: {
         type: DataTypes.STRING,
@@ -19,20 +22,7 @@ const athlete = sequelize.define('athlete', {
     email: {
         type: DataTypes.String,
         allowNull: true
-    },
-    role_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
-    command_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
-    is_leader: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
     }
 });
 
-module.exports = athlete;
+module.exports = Admin;

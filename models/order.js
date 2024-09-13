@@ -1,38 +1,43 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const athlete = sequelize.define('athlete', {
+const Order = sequelize.define('Order', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
     },
+    order_status_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+    },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ""
     },
     password: {
         type: DataTypes.String,
-        allowNull: false
+        allowNull: false,
+        defaultValue: ""
     },
     email: {
         type: DataTypes.String,
         allowNull: true
     },
-    role_id: {
+    status_id:
+    {
         type: DataTypes.Integer,
-        allowNull: false
-    },
-    command_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
-    is_leader: {
-        type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: false
+        defaultValue: 0
+    },
+    type_id:
+    {
+        type: DataTypes.Integer,
+        allowNull: false
     }
 });
 
-module.exports = athlete;
+module.exports = Order;
