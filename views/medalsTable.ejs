@@ -1,0 +1,72 @@
+<!--
+    Описание:
+    Шаблон для отображения таблицы медального зачета по университетам.
+    
+    <main>:
+        - Таблица медального зачета:
+        - Таблица с информацией о медалях, выигранных различными университетами.
+        - Таблица включает заголовки столбцов: университет, золото, серебро, бронза, всего.
+        - Цикл для отображения всех медальных данных: `<% medals.forEach(medal => { %> ... <% }) %>`.
+        - Медали отображаются в строках таблицы, каждая из которых содержит название университета и количество золотых, серебряных и бронзовых медалей, а также всего медалей.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медальный зачет</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Таблица медального зачета</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Университет</th>
+                        <th>Золото</th>
+                        <th>Серебро</th>
+                        <th>Бронза</th>
+                        <th>Всего</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% medals.forEach(medal => { %>
+                        <tr>
+                            <td><%= medal.universityName %></td>
+                            <td><%= medal.gold %></td>
+                            <td><%= medal.silver %></td>
+                            <td><%= medal.bronze %></td>
+                            <td><%= medal.total %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
+

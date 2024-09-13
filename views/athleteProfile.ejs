@@ -1,0 +1,84 @@
+<!--
+Описание:
+- <main>: Основное содержание страницы:
+  - Приветствие и основная информация о спортсмене**: Имя, email, дата рождения, спорт, команда.
+  - Результаты соревнований**: Список результатов соревнований спортсмена.
+  - Группы и команды**: Список команд, в которые входит спортсмен.
+  - Настройки профиля**: Форма для обновления email и пароля.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет спортсмена</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Личный кабинет спортсмена</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Привет, <%= athlete.name %>!</h2>
+            <p>Email: <%= athlete.email %></p>
+            <p>Дата рождения: <%= new Date(athlete.birthDate).toLocaleDateString() %></p>
+            <p>Спорт: <%= athlete.sport %></p>
+            <p>Команда: <%= athlete.teamName %></p>
+        </section>
+
+        <section>
+            <h2>Результаты соревнований</h2>
+            <ul>
+                <% athlete.competitionResults.forEach(result => { %>
+                    <li><%= result.event %> - <%= result.position %> место</li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Мои группы и команды</h2>
+            <ul>
+                <% athlete.teams.forEach(team => { %>
+                    <li><%= team.name %></li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Настройки профиля</h2>
+            <form action="/athlete/update/<%= athlete.id %>" method="POST">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="<%= athlete.email %>">
+                </div>
+                <div>
+                    <label for="password">Новый пароль:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Обновить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
+

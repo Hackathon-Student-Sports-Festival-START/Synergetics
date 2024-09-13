@@ -1,0 +1,78 @@
+<!--
+    Шаблон для управления командами, включая добавление новых команд, обновление существующих и удаление команд.
+
+    <main>:
+    - Создание новой команды:
+        - Секция с формой для создания новой команды.
+        - Поле для ввода названия команды, с идентификатором и именем `teamName`, и кнопка для отправки формы.
+
+    - Мои команды:
+        - Список команд, каждая из которых отображает название команды.
+        - Формы для обновления и удаления команды:
+            - Форма для обновления включает текстовое поле с текущим именем команды и кнопку для отправки изменений.
+            - Форма для удаления команды содержит кнопку для удаления команды.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление командами</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Управление командами</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Создать новую команду</h2>
+            <form action="/teams/create" method="POST">
+                <div>
+                    <label for="teamName">Название команды:</label>
+                    <input type="text" id="teamName" name="teamName" required>
+                </div>
+                <button type="submit">Создать</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Мои команды</h2>
+            <ul>
+                <% teams.forEach(team => { %>
+                    <li>
+                        <%= team.name %>
+                        <form action="/teams/update/<%= team.id %>" method="POST" style="display:inline;">
+                            <input type="text" name="teamName" value="<%= team.name %>" required>
+                            <button type="submit">Обновить</button>
+                        </form>
+                        <form action="/teams/delete/<%= team.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Удалить</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
+

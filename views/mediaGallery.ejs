@@ -1,0 +1,73 @@
+<!--
+    Описание:
+    Шаблон для отображения галереи фотографий и видео с фестиваля.
+    
+    <main>:
+        - Фотографии:
+        - Секция с фотографиями.
+        - Цикл для отображения всех изображений: `<% media.photos.forEach(photo => { %> ... <% }) %>`.
+        - Каждое изображение представлено в теге `<img>`, где `src` ссылается на путь к файлу, а `alt` содержит описание.
+        - Видео:
+        - Секция с видео.
+        - Цикл для отображения всех видео: `<% media.videos.forEach(video => { %> ... <% }) %>`.
+        - Каждое видео представлено в теге `<video>`, включающем управление воспроизведением и источник видео файла.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея фотографий и видео</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Галерея фотографий и видео</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</а></ли>
+                <ли><а href="/logout">Выйти</а></ли>
+            </ул>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Фотографии</h2>
+            <div class="gallery">
+                <% media.photos.forEach(photo => { %>
+                    <div class="gallery-item">
+                        <img src="<%= photo.filePath %>" alt="<%= photo.description %>">
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+
+        <section>
+            <h2>Видео</h2>
+            <div class="gallery">
+                <% media.videos.forEach(video => { %>
+                    <div class="gallery-item">
+                        <video controls>
+                            <source src="<%= video.filePath %>" type="<%= video.mimeType %>">
+                            Ваш браузер не поддерживает воспроизведение видео.
+                        </video>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!--
+Описание:
+Шаблон для отображения статуса рассмотрения заявок на участие в фестивале.
+
+<main>:
+Секция отображения статуса заявок:
+- Список заявок с информацией о команде, университете, статусе и комментариях.
+- Используется цикл для отображения всех заявок: `<% applications.forEach(application => { %> ... <% }) %>`.
+- Каждая заявка включает название команды, университет, статус и комментарий (если есть).
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статус рассмотрения заявок</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Мои заявки</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></ли>
+                <ли><а href="/medals">Медальный зачет</а></ли>
+                <ли><а href="/media">Галерея</а></ли>
+                <ли><а href="/applications">Мои заявки</а></ли>
+                <ли><а href="/logout">Выйти</а></ли>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Статус моих заявок</h2>
+            <ul>
+                <% applications.forEach(application => { %>
+                    <li>
+                        <h3>Команда: <%= application.teamName %></h3>
+                        <p><strong>Университет:</strong> <%= application.university %></p>
+                        <p><strong>Статус:</strong> <%= application.status %></p>
+                        <p><strong>Комментарий:</strong> <%= application.comment || 'Нет комментариев' %></p>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
+

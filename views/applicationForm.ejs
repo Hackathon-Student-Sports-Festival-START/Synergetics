@@ -1,0 +1,72 @@
+<!--
+    Описание:
+    Шаблон для формы подачи заявки на участие в фестивале.
+
+    <main>:
+    - Форма подачи заявки:
+        - Секция с формой для подачи заявки на участие.
+        - Поля для ввода информации:
+            - `teamName`: Название команды.
+            - `university`: Название университета.
+            - `participants`: Состав команды.
+            - `contact`: Контактная информация.
+        - Кнопка для отправки заявки.
+-->
+        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма подачи заявки</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Подача заявки на участие в фестивале</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</а></ли>
+                <ли><а href="/media">Галерея</а></ли>
+                <ли><а href="/applications">Мои заявки</а></ли>
+                <ли><а href="/logout">Выйти</а></ли>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Заполните форму для подачи заявки</h2>
+            <form action="/applications/create" method="POST">
+                <div>
+                    <label for="teamName">Название команды:</label>
+                    <input type="text" id="teamName" name="teamName" required>
+                </div>
+                <div>
+                    <label for="university">Университет:</label>
+                    <input type="text" id="university" name="university" required>
+                </div>
+                <div>
+                    <label for="participants">Состав команды:</label>
+                    <textarea id="participants" name="participants" required></textarea>
+                </div>
+                <div>
+                    <label for="contact">Контактная информация:</label>
+                    <input type="text" id="contact" name="contact" required>
+                </div>
+                <button type="submit">Подать заявку</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
+

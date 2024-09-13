@@ -1,0 +1,80 @@
+<!--
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет участника</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Личный кабинет участника</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Привет, <%= participant.name %>!</h2>
+            <p>Email: <%= participant.email %></p>
+            <p>Дата рождения: <%= new Date(participant.birthDate).toLocaleDateString() %></p>
+            <p>Университет: <%= participant.university %></p>
+        </section>
+
+        <section>
+            <h2>Мои команды</h2>
+            <ul>
+                <% participant.teams.forEach(team => { %>
+                    <li><%= team.name %></li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Мои заявки</h2>
+            <ul>
+                <% participant.applications.forEach(application => { %>
+                    <li>
+                        <strong>Команда:</strong> <%= application.teamName %><br>
+                        <strong>Статус:</strong> <%= application.status %>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Настройки профиля</h2>
+            <form action="/participant/update/<%= participant.id %>" method="POST">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="<%= participant.email %>">
+                </div>
+                <div>
+                    <label for="password">Новый пароль:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Обновить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

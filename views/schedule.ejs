@@ -1,0 +1,70 @@
+<!--
+    Описание:
+    Шаблон для отображения расписания игр.
+    
+    <main>:
+        - Таблица расписания игр:
+        - Таблица с расписанием игр, которая включает заголовки столбцов: дата, время, команда 1, команда 2, место.
+        - Цикл для отображения всех расписаний игр: `<% schedules.forEach(schedule => { %> ... <% }) %>`.
+        - Каждая строка таблицы представляет собой расписание одной игры с датой, временем, командами и местом проведения.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание игр</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Расписание игр</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</а></ли>
+                <ли><а href="/logout">Выйти</а></ли>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Время</th>
+                        <th>Команда 1</th>
+                        <th>Команда 2</th>
+                        <th>Место</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% schedules.forEach(schedule => { %>
+                        <tr>
+                            <td><%= new Date(schedule.date).toLocaleDateString() %></td>
+                            <td><%= schedule.time %></td>
+                            <td><%= schedule.team1 %></td>
+                            <td><%= schedule.team2 %></td>
+                            <td><%= schedule.location %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

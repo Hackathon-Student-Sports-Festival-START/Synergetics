@@ -1,0 +1,80 @@
+<!--
+    Описание:
+    Шаблон для визуализации сетки соревнований.
+    
+    <main>:
+        - Секция для отображения сетки соревнований по различным видам спорта:
+        - Используется цикл для отображения всех соревнований: `<% competitions.forEach(competition => { %> ... <% }) %>`.
+        - Для каждого соревнования отображается таблица, включающая заголовки столбцов: раунд, команда 1, команда 2, результат, дата, время, место.
+        - Цикл для отображения всех матчей в каждом соревновании: `<% competition.matches.forEach(match => { %> ... <% }) %>`.
+        - Каждая строка таблицы представляет собой матч с раундом, командами, результатом, датой, временем и местом проведения.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сетка соревнований</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Сетка соревнований</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</a></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/applications">Мои заявки</a></li>
+                <li><a href="/logout">Выйти</а></ли>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <% competitions.forEach(competition => { %>
+                <div class="competition">
+                    <h2><%= competition.sport %></h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Раунд</th>
+                                <th>Команда 1</th>
+                                <th>Команда 2</th>
+                                <th>Результат</th>
+                                <th>Дата</th>
+                                <th>Время</th>
+                                <th>Место</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% competition.matches.forEach(match => { %>
+                                <tr>
+                                    <td><%= match.round %></td>
+                                    <td><%= match.team1 %></td>
+                                    <td><%= match.team2 %></td>
+                                    <td><%= match.result || 'Еще не сыграно' %></td>
+                                    <td><%= new Date(match.date).toLocaleDateString() %></td>
+                                    <td><%= match.time %></td>
+                                    <td><%= match.location %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            <% }) %>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивный фестиваль</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
+
