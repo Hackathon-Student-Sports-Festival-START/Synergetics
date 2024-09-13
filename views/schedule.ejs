@@ -1,4 +1,4 @@
-<!--
+<% /* %>
     Описание:
     Шаблон для отображения расписания игр.
     
@@ -7,7 +7,7 @@
         - Таблица с расписанием игр, которая включает заголовки столбцов: дата, время, команда 1, команда 2, место.
         - Цикл для отображения всех расписаний игр: `<% schedules.forEach(schedule => { %> ... <% }) %>`.
         - Каждая строка таблицы представляет собой расписание одной игры с датой, временем, командами и местом проведения.
--->
+<% */ %>
 
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расписание игр</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/schedule.css">
 </head>
 <body>
     <header>
@@ -24,12 +24,9 @@
         <nav>
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="/teams">Мои команды</a></li>
-                <li><a href="/schedule">Расписание игр</a></li>
                 <li><a href="/medals">Медальный зачет</a></li>
                 <li><a href="/media">Галерея</a></li>
-                <li><a href="/applications">Мои заявки</а></ли>
-                <ли><а href="/logout">Выйти</а></ли>
+                <li><a href="/login">Войти</a></li>
             </ul>
         </nav>
     </header>
@@ -47,6 +44,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% /* %>
                     <% schedules.forEach(schedule => { %>
                         <tr>
                             <td><%= new Date(schedule.date).toLocaleDateString() %></td>
@@ -56,6 +54,7 @@
                             <td><%= schedule.location %></td>
                         </tr>
                     <% }) %>
+                    <% */%>
                 </tbody>
             </table>
         </section>
@@ -68,3 +67,5 @@
     <script src="/js/scripts.js"></script>
 </body>
 </html>
+
+<link href="/css/schedule.css" rel="stylesheet">

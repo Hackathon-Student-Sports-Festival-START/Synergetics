@@ -1,0 +1,107 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Белый цвет фона */
+    color: #333333;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    background-color: #ff0000; /* Красный цвет фона хедера */
+    padding: 20px;
+    color: #ffffff; /* Белый цвет текста */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Белый цвет ссылок в хедере */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd1d1;
+    text-decoration: underline;
+}
+
+main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: #ff0000; /* Красный цвет заголовков секций */
+    border-bottom: 2px solid #ff0000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#upcoming-events ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#upcoming-events li {
+    background-color: #f8f8f8;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#upcoming-events li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#upcoming-events li h3 {
+    color: #ff0000;
+}
+
+#upcoming-events li a {
+    color: #ff0000; /* Красный цвет ссылок на мероприятия */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#upcoming-events li a:hover {
+    color: #cc0000;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #ff0000; /* Красный цвет фона футера */
+    padding: 10px;
+    color: #ffffff; /* Белый цвет текста */
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}

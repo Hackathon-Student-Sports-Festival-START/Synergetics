@@ -1,4 +1,4 @@
-<!--
+<% /* %>
     Описание:
     Шаблон для отображения галереи фотографий и видео с фестиваля.
     
@@ -11,7 +11,7 @@
         - Секция с видео.
         - Цикл для отображения всех видео: `<% media.videos.forEach(video => { %> ... <% }) %>`.
         - Каждое видео представлено в теге `<video>`, включающем управление воспроизведением и источник видео файла.
--->
+<% */ %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +27,13 @@
         <nav>
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="/teams">Мои команды</a></li>
+                <li><a href="/team">Моя команда</a></li>
                 <li><a href="/schedule">Расписание игр</a></li>
                 <li><a href="/medals">Медальный зачет</a></li>
                 <li><a href="/media">Галерея</a></li>
-                <li><a href="/applications">Мои заявки</а></ли>
-                <ли><а href="/logout">Выйти</а></ли>
-            </ул>
+                <li><a href="/application">Заявка</а></li>
+                <li><a href="/logout">Выйти</а></li>
+            </ul>
         </nav>
     </header>
 
@@ -41,17 +41,20 @@
         <section>
             <h2>Фотографии</h2>
             <div class="gallery">
+                <% /* %>
                 <% media.photos.forEach(photo => { %>
                     <div class="gallery-item">
                         <img src="<%= photo.filePath %>" alt="<%= photo.description %>">
                     </div>
                 <% }) %>
+                <% */ %>
             </div>
         </section>
 
         <section>
             <h2>Видео</h2>
             <div class="gallery">
+                <% /* %>
                 <% media.videos.forEach(video => { %>
                     <div class="gallery-item">
                         <video controls>
@@ -60,6 +63,7 @@
                         </video>
                     </div>
                 <% }) %>
+                <% */ %>
             </div>
         </section>
     </main>
@@ -71,3 +75,5 @@
     <script src="/js/scripts.js"></script>
 </body>
 </html>
+
+<link href="/css/media.css" rel="stylesheet">

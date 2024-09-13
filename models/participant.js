@@ -24,7 +24,7 @@ const Participant = sequelize.define('Participant', {
     }
 });
 
-User.hasOne(Participant,{ onDelete: "cascade"});
-User.belongsTo(Participant);
+// User.hasOne(Participant,{ onDelete: "cascade"});
+// User.belongsTo(Participant);
 
 module.exports = Participant;
