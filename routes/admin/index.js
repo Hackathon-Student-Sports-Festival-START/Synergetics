@@ -9,10 +9,12 @@ router.get('/admin/login', (req, res) => {
 
 router.get('/admin/role', RoleController.getRoles);
 router.get('/admin/role/create', RoleController.getRoleCreate);
+router.post('/admin/role/create', RoleController.postRoleCreate);
 router.get('/admin/role/:role/edit', RoleController.getRole);
 
 router.get('/admin/user', UserController.getUsers);
 router.get('/admin/user/create', UserController.getUserCreate);
+router.post('/admin/user/create', UserController.postUserCreate);
 router.get('/admin/user/:user/edit', UserController.getUser);
 
 module.exports = router;
