@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Sport_type = sequelize.define('Sport_type', {
+const GameNet = sequelize.define('GameNet', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -15,4 +15,4 @@ const Sport_type = sequelize.define('Sport_type', {
     }
 });
 
-module.exports = Sport_type;
+module.exports = GameNet;
