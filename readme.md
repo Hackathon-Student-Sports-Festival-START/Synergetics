@@ -5,5 +5,14 @@
 ```bash
 npm i
 docker-compose up
-node server.js
 ```
+
+### start
+```bash
+npm run start
+``` 
+
+### dev
+```bash
+npm run dev
+``` 
