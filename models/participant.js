@@ -13,15 +13,15 @@ const participant = sequelize.define('participant', {
         allowNull: false
     },
     password: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false
     },
     email: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: true
     },
     role_id: {
-        type: DataTypes.Integer,
+        type: DataTypes.INTEGER,
         allowNull: false
     }
 });

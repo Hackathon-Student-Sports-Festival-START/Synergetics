@@ -8,7 +8,7 @@ const Admin = sequelize.define('Admin', {
         primaryKey: true
     },
     role_id: {
-        type: DataTypes.Integer,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     name: {
@@ -16,11 +16,11 @@ const Admin = sequelize.define('Admin', {
         allowNull: false
     },
     password: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false
     },
     email: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: true
     }
 });
