@@ -14,31 +14,14 @@ const Order = sequelize.define('Order', {
         defaultValue: ""
     },
     password: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: ""
     },
     email: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: true
     }
-    // order_status_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     defaultValue: 0
-    // },
-    // },
-    // status_id:
-    // {
-    //     type: DataTypes.Integer,
-    //     allowNull: false,
-    //     defaultValue: 0
-    // },
-    // type_id:
-    // {
-    //     type: DataTypes.Integer,
-    //     allowNull: false
-    // }
 });
 
 module.exports = Order;

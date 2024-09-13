@@ -6,6 +6,47 @@
     <title>Главная</title>
 </head>
 <body>
+    <header>
+        <h1>Добро пожаловать на сайт спортивных мероприятий</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/schedule">Расписание игр</a></li>
+                <li><a href="/medals">Медальный зачет</а></li>
+                <li><a href="/media">Галерея</a></li>
+                <li><a href="/login">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Главная</h1>
+
+    <main>
+        <% /* %>
+        <section id="upcoming-events">
+            <h2>Ближайшие мероприятия</h2>
+            <ul>
+                <% events.forEach(event => { %>
+                    <li>
+                        <h3><%= event.title %></h3>
+                        <p><%= event.date %> - <%= event.location %></p>
+                        <p><%= event.description %></p>
+                        <a href="/event/<%= event.id %>">Подробнее</a>
+                    </li>
+                <% }); %>
+            </ul>
+        </section> 
+        <% */%>
+
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Мы организуем разнообразные спортивные мероприятия для всех возрастов и уровней подготовки.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Спортивные мероприятия. Все права защищены.</p>
+    </footer>
+
 </body>
 </html>

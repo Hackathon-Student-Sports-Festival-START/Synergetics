@@ -15,11 +15,11 @@ const Athlete = sequelize.define('Athlete', {
         allowNull: false
     },
     password: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false
     },
     email: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: true
     },
     is_leader: {
