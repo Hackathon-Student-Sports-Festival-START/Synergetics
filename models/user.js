@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Role = require('./participant');
+const Role = require('./role');
 
 const User = sequelize.define('User', {
     id: {
@@ -24,6 +24,6 @@ const User = sequelize.define('User', {
 });
 
 Role.hasMany(User, { onDelete: "cascade"});
-Role.belongsTo(User);
+Role.belongsTo(User);   
 
 module.exports = User;
