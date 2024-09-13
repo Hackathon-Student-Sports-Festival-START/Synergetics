@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 
 const resolve = (...paths) => path.resolve(__dirname, ...paths);
 
-app.get(express.static(resolve('./public'), { index: false }));
+app.use(express.static(resolve('./public'), { index: false }));
 
 app.use(require('#routes/index'))
 
