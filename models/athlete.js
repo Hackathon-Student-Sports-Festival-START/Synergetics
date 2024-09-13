@@ -1,7 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const User = require('./user')
 
-const athlete = sequelize.define('athlete', {
+
+const Athlete = sequelize.define('Athlete', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -20,14 +22,6 @@ const athlete = sequelize.define('athlete', {
         type: DataTypes.String,
         allowNull: true
     },
-    role_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
-    command_id: {
-        type: DataTypes.Integer,
-        allowNull: false
-    },
     is_leader: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
@@ -35,4 +29,7 @@ const athlete = sequelize.define('athlete', {
     }
 });
 
-module.exports = athlete;
+User.hasOne(Athlete, { onDelete: "cascade"});
+User.belongsTo(Athlete);
+
+module.exports = Athlete;

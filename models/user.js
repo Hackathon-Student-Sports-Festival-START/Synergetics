@@ -1,8 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Admin = require('./admin');
-const Athlete = require('./athlete');
-const Participant = require('./participant');
+const Role = require('./participant');
 
 const User = sequelize.define('User', {
     id: {
@@ -22,18 +20,10 @@ const User = sequelize.define('User', {
     email: {
         type: DataTypes.String,
         allowNull: true
-    },
-    role_id:
-    {
-        type: DataTypes.Integer,
-        allowNull: false
     }
 });
 
-User.hasOne(Admin, {
-    foreignKey: "id"
-});
-User.hasOne(Athlete);
-User.hasOne(Participant);
+Role.hasMany(User, { onDelete: "cascade"});
+Role.belongsTo(User);
 
 module.exports = User;

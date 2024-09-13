@@ -8,11 +8,6 @@ const Order = sequelize.define('Order', {
         autoIncrement: true,
         primaryKey: true
     },
-    order_status_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 0
-    },
     name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -26,18 +21,24 @@ const Order = sequelize.define('Order', {
     email: {
         type: DataTypes.String,
         allowNull: true
-    },
-    status_id:
-    {
-        type: DataTypes.Integer,
-        allowNull: false,
-        defaultValue: 0
-    },
-    type_id:
-    {
-        type: DataTypes.Integer,
-        allowNull: false
     }
+    // order_status_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     defaultValue: 0
+    // },
+    // },
+    // status_id:
+    // {
+    //     type: DataTypes.Integer,
+    //     allowNull: false,
+    //     defaultValue: 0
+    // },
+    // type_id:
+    // {
+    //     type: DataTypes.Integer,
+    //     allowNull: false
+    // }
 });
 
 module.exports = Order;

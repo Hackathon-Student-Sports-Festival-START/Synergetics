@@ -1,15 +1,12 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const User = require('./user')
 
 const Admin = sequelize.define('Admin', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true
-    },
-    role_id: {
-        type: DataTypes.Integer,
-        allowNull: false
     },
     name: {
         type: DataTypes.STRING,
@@ -24,5 +21,8 @@ const Admin = sequelize.define('Admin', {
         allowNull: true
     }
 });
+
+User.hasOne(Admin, { onDelete: "cascade"});
+User.belongsTo(Admin);
 
 module.exports = Admin;

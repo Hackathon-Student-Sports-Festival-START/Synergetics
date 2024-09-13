@@ -1,7 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const User = require('./user')
 
-const participant = sequelize.define('participant', {
+
+const Participant = sequelize.define('Participant', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -19,11 +21,10 @@ const participant = sequelize.define('participant', {
     email: {
         type: DataTypes.String,
         allowNull: true
-    },
-    role_id: {
-        type: DataTypes.Integer,
-        allowNull: false
     }
 });
 
-module.exports = participant;
+User.hasOne(Participant,{ onDelete: "cascade"});
+User.belongsTo(Participant);
+
+module.exports = Participant;
