@@ -1,16 +1,23 @@
 const sequelize = require('#config/database');
 const express = require('express');
+const path = require('node:path');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 
-const PORT = 3000;
+const resolve = (...paths) => path.resolve(__dirname, ...paths);
+
+app.get(express.static(resolve('./public'), { index: false }));
+
+app.use(require('#routes/index'))
+
+const PORT = process.env.PORT || 3000;
 
 sequelize
     .sync()
     .then(() => {
-        app.listen(3000, function () {
+        app.listen(PORT, function () {
             console.log(`Server is running on port ${PORT}`);
         });
     })
