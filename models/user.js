@@ -23,7 +23,7 @@ const User = sequelize.define('User', {
     }
 });
 
-Role.hasMany(User, { onDelete: "cascade"});
-Role.belongsTo(User);   
+Role.hasMany(User, { onDelete: "cascade" });
+Role.belongsTo(User);
 
 module.exports = User;
