@@ -17,6 +17,7 @@
   "imports": {
     "#config/*": "./config/*.js",
     "#routes/*": "./routes/*.js",
+    "#utils/*": "./utils/*.js",
     "#models/*": "./models/*.js",
     "#services/*": "./services/*.js",
     "#controllers/*": "./controllers/*.js"
